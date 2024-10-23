@@ -1,0 +1,11 @@
+<!-- layout.component.html -->
+<button class="toggle-button" (click)="toggleSidebar()">
+  <span>&#8942;</span>
+</button>
+
+<div class="sidebar" [ngClass]="{'show-sidebar': sidebarVisible}">
+  <!-- Contenido de la barra lateral -->
+  <button class="modo-oscuro-button" (click)="toggleModoOscuro()">
+    Modo Oscuro: {{ modoOscuro ? 'Desactivar' : 'Activar' }}
+  </button>
+</div>

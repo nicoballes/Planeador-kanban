@@ -1,0 +1,206 @@
+<div><h1 class="text-primary h2">Planeador de Posventa</h1></div>
+
+<div class="container-fluid p-3">
+  <div class="row">
+    <div class="kanban-column Clientes col-2 mx-3 h-100 p-3 border border-dark vh-100">
+      <div class="mb-3">
+        <h5 >Indicadores</h5>
+        <div class="mb-3">
+          <span>Capacidad</span>
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width]="balance.capacidad + '%'"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ balance.capacidad }}%
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <span>Eficiencia en Cotizaciones</span>
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width]="balance.Eficiencia_Cotizaciones + '%'"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ balance.Eficiencia_Cotizaciones}}%
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <span>Cumplimiento</span>
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width]="balance.cumplimiento + '%'"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ balance.cumplimiento }}%
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Clientes</h3>
+      <select
+        [(ngModel)]="selectedClient"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="" selected>Selecciona un Cliente</option>
+        <option value="1">Pisende</option>
+        <option value="2">Hercules</option>
+        <option value="3">Itacol</option>
+        <option value="4">Bianchi</option>
+        <option value="5">Ofimarcas</option>
+      </select>
+      <button type="button" class="btn " (click)="generateCards()">
+        Generar
+      </button>
+    </div>
+
+    <!-- Columnas 1 -->
+    <div class="kanban-column estimado col-2 mx-4 h-100 p-3 border border-dark vh-100 ">
+      <h3>Estimado</h3>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList, enviadoList, desarrolloList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <!-- Marcador de posición para la lista vacía -->
+        <div *ngIf="todo.length === 0" class="placeholder">
+          La lista está vacía. Puedes agregar elementos aquí.
+        </div>
+        <!-- Tarjetas en la lista -->
+        <div
+          *ngFor="let item of todo; let i = index"
+          cdkDrag
+          class="card mt-1"
+          style="width: 100%"
+          [cdkDragData]="item"
+          [ngClass]="getBorderClasses('estimado')"
+        >
+          <div class="card-body">
+            <h5 class="card-title"><a [href]="item.enlace" target="_blank">{{ item.title }}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+            <p class="card-text">{{ item.description }}</p>
+            <p *ngIf="item.horas_estimadas">Horas Estimadas: {{ item.horas_estimadas }}</p>
+            <p *ngIf="item.estado">Estado: {{ item.estado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- columna 2 -->
+    <div class="kanban-column porEstimar col-2 mx-4 h-100 p-3 border border-dark vh-100">
+      <h3>Por estimar</h3>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList, enviadoList, desarrolloList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngIf="done.length === 0" class="placeholder">
+          La lista está vacía. Puedes agregar elementos aquí.
+        </div>
+        <!-- Tarjetas en la lista -->
+        <div
+          *ngFor="let item of done"
+          cdkDrag
+          class="card mt-1"
+          style="width: 100%"
+          [cdkDragData]="item"
+          [ngClass]="getBorderClasses('porEstimar')"
+        >
+          <div class="card-body">
+            <h5 class="card-title"><a [href]="item.enlace" target="_blank">{{ item.title }}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+            <p class="card-text">{{ item.description }}</p>
+            <p *ngIf="item.horas_estimadas">Horas Estimadas: {{ item.horas_estimadas }}</p>
+            <p *ngIf="item.estado">Estado: {{ item.estado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- columna 3 -->
+    <div class="kanban-column enviado col-2 mx-4 h-100 p-3 border border-dark vh-100">
+      <h3>Cotizacion Enviada</h3>
+      <div
+        cdkDropList
+        #enviadoList="cdkDropList"
+        [cdkDropListData]="enviado"
+        [cdkDropListConnectedTo]="[todoList, doneList, desarrolloList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngIf="enviado.length === 0" class="placeholder">
+          La lista está vacía. Puedes agregar elementos aquí.
+        </div>
+        <!-- Tarjetas en la lista -->
+        <div
+          *ngFor="let item of enviado"
+          cdkDrag
+          class="card mt-1"
+          style="width: 100%"
+          [cdkDragData]="item"
+          [ngClass]="getBorderClasses('enviado')"
+        >
+          <div class="card-body">
+            <h5 class="card-title"><a [href]="item.enlace" target="_blank">{{ item.title }}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+            <p class="card-text">{{ item.description }}</p>
+            <p *ngIf="item.horas_estimadas">Horas Estimadas: {{ item.horas_estimadas }}</p>
+            <p *ngIf="item.estado">Estado: {{ item.estado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- columna 4 -->
+    <div class="kanban-column desarrollo col-2 mx-4 h-100 p-3 border border-dark vh-100">
+      <h3>Cotizacion Aprobada</h3>
+      <div
+        cdkDropList
+        #desarrolloList="cdkDropList"
+        [cdkDropListData]="desarrollo"
+        [cdkDropListConnectedTo]="[todoList, doneList, enviadoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngIf="desarrollo.length === 0" class="placeholder">
+          La lista está vacía. Puedes agregar elementos aquí.
+        </div>
+        <!-- Tarjetas en la lista -->
+        <div
+          *ngFor="let item of desarrollo"
+          cdkDrag
+          class="card mt-1"
+          style="width: 100%"
+          [cdkDragData]="item"
+          [ngClass]="getBorderClasses('desarrollo')"
+        >
+          <div class="card-body">
+            <h5 class="card-title"><a [href]="item.enlace" target="_blank">{{ item.title }}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+            <p class="card-text">{{ item.description }}</p>
+            <p *ngIf="item.horas_estimadas">Horas Estimadas: {{ item.horas_estimadas }}</p>
+            <p *ngIf="item.estado">Estado: {{ item.estado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

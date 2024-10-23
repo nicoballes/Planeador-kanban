@@ -1,0 +1,182 @@
+
+.text-primary{
+  text-align: center;
+}
+
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+ 
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  /* Agrega estilos a la lista vacía */
+.example-list .placeholder {
+  border: 2px dashed #ccc; /* Bordes punteados grises */
+  background-color: #f9f9f9; /* Fondo gris claro */
+  color: #888; /* Color de texto gris oscuro */
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+  margin: 10px 0; /* Margen superior e inferior */
+
+//color de las card
+}
+.border-danger {
+  border-width: 0; /* Anula el ancho de todos los bordes */
+  border-left-width: 6px; /* Ajusta según tus preferencias */
+  border-left-color: red; /* Color del borde izquierdo */
+  border-top-left-radius: 0; /* Hace que el borde superior izquierdo sea recto */
+  border-bottom-left-radius: 0; /* Hace que el borde inferior izquierdo sea recto */
+}
+
+
+.border-primary{
+  border-width: 0; /* Anula el ancho de todos los bordes */
+  border-left-width: 6px; /* Ajusta según tus preferencias */
+  border-left-color: blue; /* Color del borde izquierdo */
+  border-top-left-radius: 0; /* Hace que el borde superior izquierdo sea recto */
+  border-bottom-left-radius: 0; /* Hace que el borde inferior izquierdo sea recto */
+}
+.border-secondary{
+  border-width: 0; /* Anula el ancho de todos los bordes */
+  border-left-width: 6px; /* Ajusta según tus preferencias */
+  border-left-color: darkgray; /* Color del borde izquierdo */
+  border-top-left-radius: 0; /* Hace que el borde superior izquierdo sea recto */
+  border-bottom-left-radius: 0; /* Hace que el borde inferior izquierdo sea recto */
+}
+.border-success{
+  border-width: 0; /* Anula el ancho de todos los bordes */
+  border-left-width: 6px; /* Ajusta según tus preferencias */
+  border-left-color: gree; /* Color del borde izquierdo */
+  border-top-left-radius: 0; /* Hace que el borde superior izquierdo sea recto */
+  border-bottom-left-radius: 0; /* Hace que el borde inferior izquierdo sea recto */
+}
+.placeholder{
+  height: 100%;
+}
+
+/* Estilos para el botón de generación */
+.btn{
+  width: 100%;
+  background-color: #007bff; /* Cambia el color de fondo del botón según sea necesario */
+  color: #fff; /* Cambia el color del texto del botón según sea necesario */
+  margin-top: 30px;
+}
+
+.generate-btn:hover {
+  background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el mouse según sea necesario */
+}
+.custom-card {
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  position: relative; /* Necesario para posicionar el icono dentro de la tarjeta */
+}
+.eye-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #007bff; /* Cambia este color según tus necesidades */
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.mx-4 {
+  margin-right: 1rem!important;
+  margin-left: 0rem!important;
+  
+  
+} 
+.mx-3{
+  margin-right: 6rem!important;
+  margin-left: 2rem!important;
+  width: 20%;
+ 
+}
+
+.mb-3{
+  text-align: center;
+}
+
+
+/* Establece una clase común para todas las columnas */
+.kanban-column {
+  border: 2px solid #ccc; /* Establece un borde gris */
+  padding: 10px; /* Ajusta según sea necesario */
+  margin: 10px; /* Ajusta según sea necesario */
+  transition: border-color 0.3s ease-in-out; /* Agrega una transición suave al color del borde */
+  border-radius: 0; /* Asegura que no haya bordes redondeados */
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Cambia el color del borde a transparente al pasar el ratón sobre la columna */
+.kanban-column:hover {
+  border-color: transparent;
+}
+
+/* Establece bordes específicos para cada columna */
+.estimado {
+  border-color: red; /* Ajusta el color del borde según sea necesario */
+}
+
+.porEstimar {
+  border-color: blue; /* Ajusta el color del borde según sea necesario */
+}
+
+.enviado {
+  border-color: darkgray; /* Ajusta el color del borde según sea necesario */
+}
+
+.desarrollo {
+  border-color: green; /* Ajusta el color del borde según sea necesario */
+}
+
+
+
+
+
+  
+  
+
+

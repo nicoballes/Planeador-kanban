@@ -1,0 +1,38 @@
+.app-container {
+  min-height: 100vh; /* Asegura que el contenedor abarque al menos la altura de la ventana */
+  overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura de la ventana */
+  display: flex; /* Usa flexbox para que ocupe toda la altura disponible */
+  flex-direction: column; /* Ajusta el flujo a columna */
+}
+
+
+/* Estilos para centrar el contenido a la izquierda */
+.blue-header {
+  background-color: #3498db; /* Color de fondo del encabezado */
+  padding: 10px; /* Espacio interno del encabezado */
+  display: flex; /* Utilizamos flexbox para centrar elementos */
+  justify-content: space-between; /* Centramos elementos a izquierda y derecha */
+  align-items: center; /* Centramos verticalmente */
+}
+
+/* Estilos para las columnas del Kanban Board a la derecha */
+.mat-grid-tile {
+  margin: 10px; /* Espacio entre las columnas */
+}
+
+/* Estilos para el contenido de LayoutComponent a la izquierda */
+app-layout {
+  padding: 10px; /* Espacio interno del contenido izquierdo */
+}
+/* app.component.css */
+.content {
+  margin-right: 0;
+  transition: margin-right 0.3s ease; /* Agrega una transición suave */
+}
+
+.content:hover {
+  margin-right: 300px; /* Ancho de la barra lateral */
+}
+
+
+

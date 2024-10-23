@@ -1,0 +1,41 @@
+/* Estilos para el botón de alternar */
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilos iniciales para la barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Oculta la barra lateral inicialmente fuera de la pantalla */
+  height: 100%;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.8);//controla la opacidad
+  box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease; /* Transición más rápida */
+  z-index: 1000;
+  
+}
+
+/* Estilos para mostrar la barra lateral */
+.show-sidebar {
+  right: 0;
+}
+// layout.component.scss
+
+.modo-oscuro-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+

@@ -1,0 +1,33 @@
+<!-- <div
+*ngFor="let item of todo; let i = index"
+cdkDrag
+class="card mt-1 rectangular-card"
+style="width: 100%"
+[cdkDragData]="item"
+[ngClass]="getBorderClasses('estimado')" -->
+>
+<!-- <div class="card-body">
+  
+  <div *ngIf="!showFullCard[i]" class="card-content">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+    <a href="#" class="card-link" (click)="toggleFullCardContent(i)">
+      Ver más
+    </a>
+  </div> -->
+
+  <!-- Vista completa con transición de altura -->
+  <!-- <div *ngIf="showFullCard[i]" class="card-content full-content">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+    <p class="card-text">{{ item.description }}</p>
+    <p *ngIf="item.horas_estimadas">
+      Horas Estimadas: {{ item.horas_estimadas }}
+    </p>
+    <p *ngIf="item.estado">Estado: {{ item.estado }}</p>
+    <a href="#" class="card-link" (click)="toggleFullCardContent(i)">
+      Ver menos
+    </a>
+  </div>
+</div>
+</div> -->
